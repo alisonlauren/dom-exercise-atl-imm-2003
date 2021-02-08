@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+        
+    <meta charset="UTF-8">
+        
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <title>Document</title>
+</head>
+
+<body>
+        <header style="align-self: center;">Your shopping list</header>
+        <div>
+        <!-- doesn't have to be an Id, just personally used to it. -->
+                <ul id="shoppingList">
+                        <li>Tea</li>
+                        <li>Coffee</li>
+                        <li>Milk</li>
+                    </ul>
+            </div>
+        <!-- we do need to use a form tag, this all work together and to make
+        sure that they do, we use a form tag -->
+        <form id="newItem">
+                <legend>Add to your list</legend>
+                <label for="item"></label>
+                <br>
+                <input type="text" name= "item" id="item">
+        <!-- we needed to use the type "submit", its a type already created in js
+        and it tells the button to sumbit which we use in the form.addEventListener -->
+                <button type="submit" class="myButton">Submit Or Die!!!</button>
+        </form>
+        
+    <script>
+        //instead of referring to the button, we refer to the entire form 
+        const form = document.getElementById("newItem");
+        const list = document.getElementById("shoppingList");
+        const input = document.getElementById("item");
+        //this adds an event listener on the submit type
+        form.addEventListener("submit", function (event) {
+            //this prevents the page from reloading without us
+            event.preventDefault();
+            // new item will be another li element within the ul
+            const newItem = document.createElement("li");
+            //dont you refresh just yet browser!!
+            event.preventDefault();
+            //the new items string will be whatever the value of the item is decided by the user
+            newItem.innerText = item.value;
+            //append to the list
+            list.append(newItem);
+            //think of this like a refresh.
+            form.reset();
+        });
+    </script>
+</body>
+
+</html>
